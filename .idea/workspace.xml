@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53bc907a-8168-49f4-a1a6-411df360b98b" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/bean/NewUserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/impl/DoAuthorization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/impl/DoRegistration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/impl/GoToAuthorizationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/impl/GoToMainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/impl/GoToRegistrationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/dao/DaoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/dao/DaoProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/dao/NewsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/dao/impl/SQLNewsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/dao/impl/SQLUserDao.java" afterDir="false" />
+    <list default="true" id="53bc907a-8168-49f4-a1a6-411df360b98b" name="Changes" comment="DAO layer stub">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/ServiceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/AdminServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/CommandProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/CommandProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +28,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -52,7 +46,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -78,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658084614492</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="DAO layer stub">
+      <created>1658309375668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658309375668</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +98,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="DAO layer stub" />
+    <option name="LAST_COMMIT_MESSAGE" value="DAO layer stub" />
   </component>
 </project>
