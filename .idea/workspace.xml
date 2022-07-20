@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53bc907a-8168-49f4-a1a6-411df360b98b" name="Changes" comment="DAO layer stub">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/ServiceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/ServiceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/UserServiceImpl.java" afterDir="false" />
+    <list default="true" id="53bc907a-8168-49f4-a1a6-411df360b98b" name="Changes" comment="Service layer added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/util/validation/UserDataValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/util/validation/UserDataValidationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658309375668</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Service layer added">
+      <created>1658310444305</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658310444305</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +103,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="DAO layer stub" />
-    <option name="LAST_COMMIT_MESSAGE" value="DAO layer stub" />
+    <MESSAGE value="Service layer added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service layer added" />
   </component>
 </project>

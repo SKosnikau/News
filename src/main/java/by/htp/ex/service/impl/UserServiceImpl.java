@@ -6,7 +6,8 @@ import by.htp.ex.dao.DaoProvider;
 import by.htp.ex.dao.UserDao;
 import by.htp.ex.service.ServiceException;
 import by.htp.ex.service.UserService;
-import jakarta.validation.spi.ValidationProvider;
+import by.htp.ex.util.validation.UserDataValidation;
+import by.htp.ex.util.validation.ValidationProvider;
 
 public class UserServiceImpl implements UserService {
     UserDao userDao = DaoProvider.getInstance().getUserDao();
