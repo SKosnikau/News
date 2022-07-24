@@ -1,27 +1,28 @@
 package by.htp.ex.service;
 
-import by.htp.ex.service.impl.AdminServiceImpl;
+import by.htp.ex.service.impl.NewsServiceImpl;
 import by.htp.ex.service.impl.UserServiceImpl;
 
-public class ServiceProvider {
+public final class ServiceProvider {
+	private static final ServiceProvider instance = new ServiceProvider();
+	
+	private ServiceProvider() {}
+	
+	private final IUserService userService = new UserServiceImpl();
+	private final INewsService newsService = new NewsServiceImpl();
+	
+	public INewsService getNewsService() {
+		return newsService;
+	}
 
-    private static final ServiceProvider instance = new ServiceProvider();
 
-    private ServiceProvider() {
-    }
+	public IUserService getUserService() {
+		return userService;
+	}
+	
+	
+	public static ServiceProvider getInstance() {
+		return instance;
+	}
 
-    public static ServiceProvider getInstance() {
-        return instance;
-    }
-
-    private final UserService userService = new UserServiceImpl();
-    private final AdminService adminService = new AdminServiceImpl();
-
-    public UserService getUserService() {
-        return userService;
-    }
-
-    public AdminService adminService() {
-        return adminService;
-    }
 }

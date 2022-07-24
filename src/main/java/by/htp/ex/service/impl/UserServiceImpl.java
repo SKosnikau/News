@@ -3,39 +3,40 @@ package by.htp.ex.service.impl;
 import by.htp.ex.bean.NewUserInfo;
 import by.htp.ex.dao.DaoException;
 import by.htp.ex.dao.DaoProvider;
-import by.htp.ex.dao.UserDao;
+import by.htp.ex.dao.IUserDAO;
 import by.htp.ex.service.ServiceException;
-import by.htp.ex.service.UserService;
-import by.htp.ex.util.validation.UserDataValidation;
-import by.htp.ex.util.validation.ValidationProvider;
+import by.htp.ex.service.IUserService;
 
-public class UserServiceImpl implements UserService {
-    UserDao userDao = DaoProvider.getInstance().getUserDao();
-    UserDataValidation userDataValidation = ValidationProvider.getInstance().getUserDataValidation();
+public class UserServiceImpl implements IUserService{
 
-    @Override
-    public boolean authorization(String login, String password) throws ServiceException {
-        if (!userDataValidation.checkAuthData(login, password)) {
-            throw new ServiceException("Invalid Login or Password");
-        }
+	private final IUserDAO userDAO = DaoProvider.getInstance().getUserDao();
+//	private final UserDataValidation userDataValidation = ValidationProvider.getIntsance().getUserDataVelidation();
+	
+	@Override
+	public String signIn(String login, String password) throws ServiceException {
+		
+		/*
+		 * if(!userDataValidation.checkAUthData(login, password)) { throw new
+		 * ServiceException("login ...... "); }
+		 */
+		
+		try {
+			if(userDAO.logination(login, password)) {
+				return userDAO.getRole(login, password);
+			}else {
+				return "guest";
+			}
+			
+		}catch(DaoException e) {
+			throw new ServiceException(e);
+		}
+		
+	}
 
-        try {
-            return userDao.authorization(login, password);
-        } catch (DaoException e) {
-            throw new ServiceException(e);
-        }
-    }
+	@Override
+	public boolean registration(NewUserInfo user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-    @Override
-    public boolean registration(NewUserInfo user) throws ServiceException {
-        if (!userDataValidation.checkRegData(user)) {
-            throw new ServiceException("Invalid registration information");
-        }
-
-        try {
-            return userDao.registration(user);
-        } catch (DaoException e) {
-            throw new ServiceException(e);
-        }
-    }
 }

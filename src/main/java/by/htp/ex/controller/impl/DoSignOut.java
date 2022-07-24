@@ -7,11 +7,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class DoRegistration implements Command {
+public class DoSignOut implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+			request.getSession(true).setAttribute("user", "not active");
+			response.sendRedirect("index.jsp");
 		
 	}
 

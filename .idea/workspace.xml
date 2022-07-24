@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53bc907a-8168-49f4-a1a6-411df360b98b" name="Changes" comment="Service layer added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/util/validation/UserDataValidation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/util/validation/UserDataValidationImpl.java" afterDir="false" />
+    <list default="true" id="53bc907a-8168-49f4-a1a6-411df360b98b" name="Changes" comment="User Validatio added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/CommandProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/htp/ex/controller/CommandProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658310444305</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="User Validatio added">
+      <created>1658312862943</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658312862943</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +109,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="DAO layer stub" />
     <MESSAGE value="Service layer added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Service layer added" />
+    <MESSAGE value="User Validatio added" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Validatio added" />
   </component>
 </project>
