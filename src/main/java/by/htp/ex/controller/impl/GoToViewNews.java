@@ -19,7 +19,6 @@ public class GoToViewNews implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		News news;
-		
 		String id;
 
 		id = request.getParameter("id");
@@ -34,7 +33,5 @@ public class GoToViewNews implements Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
 }

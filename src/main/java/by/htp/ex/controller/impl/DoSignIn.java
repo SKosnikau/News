@@ -6,12 +6,11 @@ import by.htp.ex.controller.Command;
 import by.htp.ex.service.ServiceException;
 import by.htp.ex.service.ServiceProvider;
 import by.htp.ex.service.IUserService;
-import by.htp.ex.service.impl.UserServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class DoSIgnIn implements Command {
+public class DoSignIn implements Command {
 
 	private final IUserService service = ServiceProvider.getInstance().getUserService();
 
