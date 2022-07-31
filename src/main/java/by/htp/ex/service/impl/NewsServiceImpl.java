@@ -9,54 +9,50 @@ import by.htp.ex.dao.NewsDAOException;
 import by.htp.ex.service.INewsService;
 import by.htp.ex.service.ServiceException;
 
-public class NewsServiceImpl implements INewsService{
+public class NewsServiceImpl implements INewsService {
 
-	private final INewsDAO newsDAO = DaoProvider.getInstance().getNewsDAO();
-	
-	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-		
-	}
+    private final INewsDAO newsDAO = DaoProvider.getInstance().getNewsDAO();
 
-	@Override
-	public void find() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void save() {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void find() {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public List<News> latestList(int count) throws ServiceException {
-		
-		try {
-			return newsDAO.getLatestsList(5);
-		} catch (NewsDAOException e) {
-			throw new ServiceException(e);
-		}
-	}
+    @Override
+    public void update() {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public List<News> list() throws ServiceException {
-		try {
-			return newsDAO.getList();
-		} catch (NewsDAOException e) {
-			throw new ServiceException(e);
-		}
-	}
+    @Override
+    public List<News> latestList(int count) throws ServiceException {
 
-	@Override
-	public News findById(int id) throws ServiceException {
-		try {
-			return newsDAO.fetchById(id);
-		} catch (NewsDAOException e) {
-			throw new ServiceException(e);
-		}
-	}
+        try {
+            return newsDAO.getLatestsList(5);
+        } catch (NewsDAOException e) {
+            throw new ServiceException(e);
+        }
+    }
 
+    @Override
+    public List<News> list() throws ServiceException {
+        try {
+            return newsDAO.getList();
+        } catch (NewsDAOException e) {
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
+    public News findById(int id) throws ServiceException {
+        try {
+            return newsDAO.fetchById(id);
+        } catch (NewsDAOException e) {
+            throw new ServiceException(e);
+        }
+    }
 }
