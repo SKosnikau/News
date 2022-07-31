@@ -9,26 +9,25 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 public class FrontController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	private final CommandProvider provider = new CommandProvider();
-       
+    private static final long serialVersionUID = 1L;
+
+    private final CommandProvider provider = new CommandProvider();
+
 
     public FrontController() {
         super();
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String commandName = request.getParameter("command");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String commandName = request.getParameter("command");
 
-		Command command = provider.getCommand(commandName);
-		command.execute(request, response);
-	}
+        Command command = provider.getCommand(commandName);
+        command.execute(request, response);
+    }
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 }
