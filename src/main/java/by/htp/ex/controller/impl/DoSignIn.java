@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+
 public class DoSignIn implements Command {
 
     private final IUserService service = ServiceProvider.getInstance().getUserService();
@@ -22,7 +23,6 @@ public class DoSignIn implements Command {
     private static final String JSP_LOGIN_PARAM = "login";
     private static final String JSP_PASSWORD_PARAM = "password";
     private static final String ERROR_LOGINATION_MESSAGE = "wrong login or password";
-
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

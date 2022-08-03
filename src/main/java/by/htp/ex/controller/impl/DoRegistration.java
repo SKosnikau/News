@@ -46,7 +46,6 @@ public class DoRegistration implements Command {
 
         } catch (ServiceException e) {
             e.printStackTrace();
-
         }
     }
 }
