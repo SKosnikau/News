@@ -35,11 +35,11 @@ public class DoRegistration implements Command {
         try {
             if (service.registration(userData)) {
                 getSession.setAttribute(AttributsKeys.USER, ConnectionStatus.ACTIVE);
-                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.REGISTRED);
+                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.REGISTERED);
                 getSession.setAttribute(AttributsKeys.ROLE, role);
                 response.sendRedirect("controller?command=go_to_news_list");
             } else {
-                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.UNREGISTRED);
+                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.UNREGISTERED);
                 request.setAttribute(AttributsKeys.ERRORS_REGISTRATION_NAME, ERROR_REGISTRATION_MESSAGE);
                 request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
             }

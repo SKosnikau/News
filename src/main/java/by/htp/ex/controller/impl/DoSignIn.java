@@ -37,7 +37,7 @@ public class DoSignIn implements Command {
             if (!role.equals(UsersRole.GUEST)) {
                 getSession.setAttribute(AttributsKeys.USER, ConnectionStatus.ACTIVE);
                 getSession.setAttribute(AttributsKeys.ROLE, role);
-                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.REGISTRED);
+                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.REGISTERED);
                 response.sendRedirect("controller?command=go_to_news_list");
             } else {
                 getSession.setAttribute(AttributsKeys.USER, ConnectionStatus.NOT_ACTIVE);

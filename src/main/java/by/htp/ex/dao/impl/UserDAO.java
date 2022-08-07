@@ -85,7 +85,7 @@ public class UserDAO implements IUserDAO {
             if (!user.equals(registeredUsers)) {
                 result = false;
             } else {
-                getErrorsListMessage(ErrorsMessages.USER_ALREADY_REGISTRED);
+                getErrorsListMessage(ErrorsMessages.USER_ALREADY_REGISTERED);
             }
         }
         return result;

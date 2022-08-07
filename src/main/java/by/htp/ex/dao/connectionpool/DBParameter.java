@@ -1,9 +1,8 @@
-package by.htp.ex.dao.connectionpoolimpl;
+package by.htp.ex.dao.connectionpool;
 
 public final class DBParameter {
     private DBParameter() {
     }
-
     public static final String DB_DRIVER = "db.driver";
     public static final String DB_URL = "db.url";
     public static final String DB_USER = "db.user";

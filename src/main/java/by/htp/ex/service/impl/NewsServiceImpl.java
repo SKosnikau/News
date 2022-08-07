@@ -15,17 +15,14 @@ public class NewsServiceImpl implements INewsService {
 
     @Override
     public void save() {
-        // TODO Auto-generated method stub
     }
 
     @Override
     public void find() {
-        // TODO Auto-generated method stub
     }
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
     }
 
     @Override

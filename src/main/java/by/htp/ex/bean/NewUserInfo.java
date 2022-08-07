@@ -49,12 +49,14 @@ public class NewUserInfo {
         this.userSurname = userSurname;
     }
 
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+        //TODO: Ask if that's a good idea to have "setPassword" in Bean?
     }
 
     public String getLogin() {
@@ -65,7 +67,6 @@ public class NewUserInfo {
         this.login = login;
     }
 
-
     public String getEmail() {
         return email;
     }
@@ -73,7 +74,6 @@ public class NewUserInfo {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getRole() {
         return role;
@@ -97,7 +97,6 @@ public class NewUserInfo {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         NewUserInfo that = (NewUserInfo) obj;
-
         return Objects.equal(userName, that.userName) && Objects.equal(userSurname, that.userSurname) && Objects.equal(login, that.login)
                 && Objects.equal(email, that.email) && Objects.equal(role, that.role);
     }

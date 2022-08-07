@@ -1,4 +1,4 @@
-package by.htp.ex.dao.connectionpoolimpl;
+package by.htp.ex.dao.connectionpool;
 
 import java.sql.*;
 import java.util.Map;
@@ -9,6 +9,10 @@ import java.util.concurrent.Executor;
 
 
 public final class ConnectionPool {
+
+//    private static final int QUEUES_NUMBER = 2;
+//    public static List <String> errorsMessagesConPool = new ArrayList<>();
+
     private BlockingQueue<Connection> connectionQueue;
     private BlockingQueue<Connection> givenAwayConQueue;
     private String driverName;
@@ -17,12 +21,11 @@ public final class ConnectionPool {
     private String password;
     private int poolSize;
 
-    private ConnectionPool() {
+    private ConnectionPool() throws ConnectionPoolException {
         DBResourceManager dbResourseManager = DBResourceManager.getInstance();
         this.driverName = dbResourseManager.getValue(DBParameter.DB_DRIVER);
         this.url = dbResourseManager.getValue(DBParameter.DB_URL);
         this.user = dbResourseManager.getValue(DBParameter.DB_USER);
-        ;
         this.password = dbResourseManager.getValue(DBParameter.DB_PASSWORD);
         try {
             this.poolSize = Integer.parseInt(dbResourseManager
@@ -30,28 +33,33 @@ public final class ConnectionPool {
         } catch (NumberFormatException e) {
             poolSize = 5;
         }
+        initPoolData();
     }
 
+//    public static ConnectionPool getInstance() throws ConnectionPoolException {
+//        if (connectionPool == null) {
+//            connectionPool = new ConnectionPool();
+//        }
+//
+//        return connectionPool;
+//    }
+
+
     public void initPoolData() throws ConnectionPoolException {
-//        Locale.setDefault(Locale.ENGLISH); legacy from Oracle
         try {
             Class.forName(driverName);
-            givenAwayConQueue = new
-                    ArrayBlockingQueue<Connection>(poolSize);
+            givenAwayConQueue = new ArrayBlockingQueue<Connection>(poolSize);
             connectionQueue = new ArrayBlockingQueue<Connection>(poolSize);
+
             for (int i = 0; i < poolSize; i++) {
-                Connection connection = DriverManager.getConnection(url,
-                        user,
-                        password);
-                PooledConnection pooledConnection = new PooledConnection(
-                        connection);
+                Connection connection = DriverManager.getConnection(url, user, password);
+                PooledConnection pooledConnection = new PooledConnection(connection);
                 connectionQueue.add(pooledConnection);
             }
         } catch (SQLException e) {
             throw new ConnectionPoolException("SQLException in ConnectionPool", e);
         } catch (ClassNotFoundException e) {
-            throw new ConnectionPoolException(
-                    "Can't find database driver class", e);
+            throw new ConnectionPoolException("Can't find database driver class", e);
         }
     }
 
