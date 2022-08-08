@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import by.htp.ex.bean.ConnectionStatus;
 import by.htp.ex.bean.UsersRole;
-import by.htp.ex.controller.AttributsKeys;
+import by.htp.ex.controller.AttributesKeys;
 import by.htp.ex.controller.Command;
 import by.htp.ex.controller.JspPageName;
 import by.htp.ex.service.ServiceException;
@@ -35,13 +35,13 @@ public class DoSignIn implements Command {
             String role = service.signIn(login, password);
 
             if (!role.equals(UsersRole.GUEST)) {
-                getSession.setAttribute(AttributsKeys.USER, ConnectionStatus.ACTIVE);
-                getSession.setAttribute(AttributsKeys.ROLE, role);
-                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.REGISTERED);
+                getSession.setAttribute(AttributesKeys.USER, ConnectionStatus.ACTIVE);
+                getSession.setAttribute(AttributesKeys.ROLE, role);
+                getSession.setAttribute(AttributesKeys.REG_USER, ConnectionStatus.REGISTERED);
                 response.sendRedirect("controller?command=go_to_news_list");
             } else {
-                getSession.setAttribute(AttributsKeys.USER, ConnectionStatus.NOT_ACTIVE);
-                request.setAttribute(AttributsKeys.ERRORS_LOGINATION_NAME, ERROR_LOGINATION_MESSAGE);
+                getSession.setAttribute(AttributesKeys.USER, ConnectionStatus.NOT_ACTIVE);
+                request.setAttribute(AttributesKeys.ERRORS_LOGINATION_NAME, ERROR_LOGINATION_MESSAGE);
                 request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
             }
 

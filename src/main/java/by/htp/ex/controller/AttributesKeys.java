@@ -1,6 +1,6 @@
 package by.htp.ex.controller;
 
-public class AttributsKeys {
+public class AttributesKeys {
     public static final String USER = "user";
     public static final String REG_USER = "reguser";
     public static final String ROLE = "role";

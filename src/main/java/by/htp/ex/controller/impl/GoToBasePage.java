@@ -5,7 +5,7 @@ import java.util.List;
 
 import by.htp.ex.bean.ConnectionStatus;
 import by.htp.ex.bean.News;
-import by.htp.ex.controller.AttributsKeys;
+import by.htp.ex.controller.AttributesKeys;
 import by.htp.ex.controller.Command;
 import by.htp.ex.controller.JspPageName;
 import by.htp.ex.service.INewsService;
@@ -25,8 +25,8 @@ public class GoToBasePage implements Command {
         List<News> latestNews;
         try {
             latestNews = newsService.latestList(5);
-            request.setAttribute(AttributsKeys.USER, ConnectionStatus.NOT_ACTIVE);
-            request.setAttribute(AttributsKeys.NEWS, latestNews);
+            request.setAttribute(AttributesKeys.USER, ConnectionStatus.NOT_ACTIVE);
+            request.setAttribute(AttributesKeys.NEWS, latestNews);
             request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
         } catch (ServiceException e) {
             e.printStackTrace();

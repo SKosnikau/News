@@ -1,10 +1,9 @@
 package by.htp.ex.controller.impl;
 
 import java.io.IOException;
-import java.util.List;
 
 import by.htp.ex.bean.News;
-import by.htp.ex.controller.AttributsKeys;
+import by.htp.ex.controller.AttributesKeys;
 import by.htp.ex.controller.Command;
 import by.htp.ex.controller.JspPageName;
 import by.htp.ex.service.INewsService;
@@ -24,13 +23,11 @@ public class GoToViewNews implements Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         News news;
         String id;
-
         id = request.getParameter(NEWS_PARAMETER_ID);
-
         try {
             news = newsService.findById(Integer.parseInt(id));
-            request.setAttribute(AttributsKeys.NEWS, news);
-            request.setAttribute(AttributsKeys.PRESENTATION, VIEW_LIST);
+            request.setAttribute(AttributesKeys.NEWS, news);
+            request.setAttribute(AttributesKeys.PRESENTATION, VIEW_LIST);
             request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
         } catch (ServiceException e) {
             e.printStackTrace();

@@ -5,7 +5,7 @@ import java.io.IOException;
 import by.htp.ex.bean.ConnectionStatus;
 import by.htp.ex.bean.NewUserInfo;
 import by.htp.ex.bean.UsersRole;
-import by.htp.ex.controller.AttributsKeys;
+import by.htp.ex.controller.AttributesKeys;
 import by.htp.ex.controller.Command;
 import by.htp.ex.controller.JspPageName;
 import by.htp.ex.controller.UserParameter;
@@ -34,13 +34,13 @@ public class DoRegistration implements Command {
         NewUserInfo userData = new NewUserInfo(username, usersurname, login, password, email, role);
         try {
             if (service.registration(userData)) {
-                getSession.setAttribute(AttributsKeys.USER, ConnectionStatus.ACTIVE);
-                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.REGISTERED);
-                getSession.setAttribute(AttributsKeys.ROLE, role);
+                getSession.setAttribute(AttributesKeys.USER, ConnectionStatus.ACTIVE);
+                getSession.setAttribute(AttributesKeys.REG_USER, ConnectionStatus.REGISTERED);
+                getSession.setAttribute(AttributesKeys.ROLE, role);
                 response.sendRedirect("controller?command=go_to_news_list");
             } else {
-                getSession.setAttribute(AttributsKeys.REG_USER, ConnectionStatus.UNREGISTERED);
-                request.setAttribute(AttributsKeys.ERRORS_REGISTRATION_NAME, ERROR_REGISTRATION_MESSAGE);
+                getSession.setAttribute(AttributesKeys.REG_USER, ConnectionStatus.UNREGISTERED);
+                request.setAttribute(AttributesKeys.ERRORS_REGISTRATION_NAME, ERROR_REGISTRATION_MESSAGE);
                 request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
             }
 
