@@ -1,6 +1,6 @@
 package by.htp.ex.dao.impl;
 
-public class DatabaseTableColumn {
+public final class DatabaseTableColumn {
 //TODO: DEVELOP DB ACCORDINGLY
     public static final String TABLE_USERS_COLUMN_ID = "id";
     public static final String TABLE_USERS_COLUMN_LOGIN = "login";
