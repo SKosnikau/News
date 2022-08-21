@@ -13,7 +13,7 @@ public interface INewsDAO {
 
     int addNews(News news) throws NewsDAOException;
 
-    void updateNews(News news) throws NewsDAOException;
+    boolean updateNews(News news) throws NewsDAOException;
 
-    void deleteNewses(String[] idNewses) throws NewsDAOException;
+    boolean deleteNewses(String[] idNewses) throws NewsDAOException;
 }
