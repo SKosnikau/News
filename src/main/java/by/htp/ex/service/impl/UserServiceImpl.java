@@ -18,11 +18,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public String signIn(String login, String password) throws ServiceException {
         try {
-            if (userDAO.logination(login, password)) {
-                return userDAO.getRole(login, password);
-            } else {
-                return UsersRole.GUEST;
+            if (!(userDAO.logination(login, password))) {
+                return UsersRole.GUEST.getTitle();
             }
+            return userDAO.getRole(login, password);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
@@ -30,15 +29,14 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public boolean registration(NewUserInfo user) throws ServiceException {
-        boolean result = false;
         try {
-            if (userDataValidation.checkRegData(user)) {
-                result = userDAO.registration(user);
-                return result;
+            if (!(userDataValidation.checkRegData(user))) {
+                System.out.println("something is not okay");
+                return false;
             }
+            return userDAO.registration(user);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
-        return result;
     }
 }

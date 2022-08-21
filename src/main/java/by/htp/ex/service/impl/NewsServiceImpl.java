@@ -7,15 +7,11 @@ import by.htp.ex.dao.DaoProvider;
 import by.htp.ex.dao.INewsDAO;
 import by.htp.ex.dao.NewsDAOException;
 import by.htp.ex.service.INewsService;
-import by.htp.ex.service.ServiceException;
+import by.htp.ex.service.ServiceNewsException;
 
 public class NewsServiceImpl implements INewsService {
 
     private final INewsDAO newsDAO = DaoProvider.getInstance().getNewsDAO();
-
-    @Override
-    public void save() {
-    }
 
     @Override
     public void find() {
@@ -26,30 +22,41 @@ public class NewsServiceImpl implements INewsService {
     }
 
     @Override
-    public List<News> latestList(int count) throws ServiceException {
-
+    public List<News> latestList(int count) throws ServiceNewsException {
         try {
-            return newsDAO.getLatestsList(5);
+            return newsDAO.getLatestsList(count);
         } catch (NewsDAOException e) {
-            throw new ServiceException(e);
+            throw new ServiceNewsException(e);
         }
     }
 
     @Override
-    public List<News> list() throws ServiceException {
+    public List<News> list() throws ServiceNewsException {
         try {
             return newsDAO.getList();
         } catch (NewsDAOException e) {
-            throw new ServiceException(e);
+            throw new ServiceNewsException(e);
         }
     }
 
     @Override
-    public News findById(int id) throws ServiceException {
+    public News findById(int id) throws ServiceNewsException {
         try {
             return newsDAO.fetchById(id);
         } catch (NewsDAOException e) {
-            throw new ServiceException(e);
+            throw new ServiceNewsException(e);
+        }
+    }
+
+    @Override
+    public boolean save(News news) throws ServiceNewsException {
+        try {
+            if (newsDAO.addNews(news) == 0) {
+                return false;
+            }
+            return true;
+        } catch (NewsDAOException e) {
+            throw new ServiceNewsException(e);
         }
     }
 }

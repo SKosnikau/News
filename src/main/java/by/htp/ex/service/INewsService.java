@@ -5,15 +5,17 @@ import java.util.List;
 import by.htp.ex.bean.News;
 
 public interface INewsService {
-    void save();
 
-    void find();
 
-    void update();
+    void find() throws ServiceNewsException;
 
-    List<News> latestList(int count) throws ServiceException;
+    void update() throws ServiceNewsException;
 
-    List<News> list() throws ServiceException;
+    List<News> latestList(int count) throws ServiceNewsException;
 
-    News findById(int id) throws ServiceException;
+    List<News> list() throws ServiceNewsException;
+
+    News findById(int id) throws ServiceNewsException;
+
+    boolean save(News news) throws ServiceNewsException;
 }
