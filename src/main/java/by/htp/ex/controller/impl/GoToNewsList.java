@@ -8,7 +8,7 @@ import by.htp.ex.controller.AttributesKeys;
 import by.htp.ex.controller.Command;
 import by.htp.ex.controller.JspPageName;
 import by.htp.ex.service.INewsService;
-import by.htp.ex.service.ServiceException;
+import by.htp.ex.service.ServiceNewsException;
 import by.htp.ex.service.ServiceProvider;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,10 +26,10 @@ public class GoToNewsList implements Command {
             newsList = newsService.list();
             request.setAttribute(AttributesKeys.NEWS, newsList);
             request.setAttribute(AttributesKeys.PRESENTATION, NEWS_LIST);
-
             request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
-        } catch (ServiceException e) {
-            e.printStackTrace();
+            request.setAttribute(AttributesKeys.REG_USER, null);
+        } catch (ServiceNewsException e) {
+            response.sendRedirect(JspPageName.ERROR_PAGE);
         }
     }
 }

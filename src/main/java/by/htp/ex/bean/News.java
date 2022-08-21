@@ -6,18 +6,26 @@ import java.util.Objects;
 public class News implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    private Integer idNews = 0;
+    private int idNews = 0;
     private String title = "";
     private String briefNews = "";
     private String content = "";
     private String newsDate = "";
 
+
     public News() {
     }
 
+    public News(String title, String briefNews, String content, String newsDate) {
+
+        this.title = title;
+        this.briefNews = briefNews;
+        this.content = content;
+        this.newsDate = newsDate;
+    }
+
     public News(int idNews, String title, String briefNews, String content, String newsDate) {
-        super();
+
         this.idNews = idNews;
         this.title = title;
         this.briefNews = briefNews;
@@ -25,11 +33,11 @@ public class News implements Serializable {
         this.newsDate = newsDate;
     }
 
-    public Integer getIdNews() {
+    public int getIdNews() {
         return idNews;
     }
 
-    public void setIdNews(Integer idNews) {
+    public void setIdNews(int idNews) {
         this.idNews = idNews;
     }
 
@@ -64,15 +72,15 @@ public class News implements Serializable {
 
     public void setNewsDate(String newsDate) {
         this.newsDate = newsDate;
+
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!(o instanceof News)) return false;
-        News news = (News) o;
-        return Objects.equals(idNews, news.idNews) && Objects.equals(title, news.title) && Objects.equals(briefNews, news.briefNews) && Objects.equals(content, news.content) && Objects.equals(newsDate, news.newsDate);
+        News that = (News) o;
+        return Objects.equals(idNews, that.idNews) && Objects.equals(title, that.title) && Objects.equals(briefNews, that.briefNews) && Objects.equals(content, that.content) && Objects.equals(newsDate, that.newsDate);
     }
 
     @Override
@@ -82,12 +90,6 @@ public class News implements Serializable {
 
     @Override
     public String toString() {
-        return "News{" +
-                "idNews=" + idNews + '\'' +
-                ", title='" + title + '\'' +
-                ", briefNews='" + briefNews + '\'' +
-                ", content='" + content + '\'' +
-                ", newsDate='" + newsDate + '\'' +
-                '}';
+        return "News{" + "idNews='" + idNews + '\'' + ", title='" + title + '\'' + ", briefNews='" + briefNews + '\'' + ", content='" + content + '\'' + ", newsDate='" + newsDate + '\'' + '}';
     }
 }

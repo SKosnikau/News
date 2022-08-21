@@ -9,12 +9,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 public class FrontController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private final CommandProvider provider = new CommandProvider();
-    public ConnectionPool connectionPool;
 
+    private final CommandProvider provider = new CommandProvider();
 
     public FrontController() {
         super();
@@ -24,25 +22,31 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         try {
-            connectionPool = ConnectionPool.getInstance();
+            ConnectionPool.getInstance();
         } catch (ConnectionPoolException e) {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String commandName = request.getParameter("command");
         Command command = provider.getCommand(commandName);
         command.execute(request, response);
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        doWork(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doWork(request, response);
     }
 
     @Override
     public void destroy() {
-        connectionPool.dispose();
-        super.destroy();
+        try {
+            ConnectionPool.getInstance().clearConnectionQueue();
+        } catch (ConnectionPoolException e) {
+            e.printStackTrace();
+        }
     }
 }

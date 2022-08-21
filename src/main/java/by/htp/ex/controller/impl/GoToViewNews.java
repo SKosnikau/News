@@ -7,7 +7,7 @@ import by.htp.ex.controller.AttributesKeys;
 import by.htp.ex.controller.Command;
 import by.htp.ex.controller.JspPageName;
 import by.htp.ex.service.INewsService;
-import by.htp.ex.service.ServiceException;
+import by.htp.ex.service.ServiceNewsException;
 import by.htp.ex.service.ServiceProvider;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,16 +21,19 @@ public class GoToViewNews implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        News news;
-        String id;
-        id = request.getParameter(NEWS_PARAMETER_ID);
+        News news = null;
+        String id = request.getParameter(NEWS_PARAMETER_ID);
         try {
             news = newsService.findById(Integer.parseInt(id));
-            request.setAttribute(AttributesKeys.NEWS, news);
-            request.setAttribute(AttributesKeys.PRESENTATION, VIEW_LIST);
-            request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
-        } catch (ServiceException e) {
-            e.printStackTrace();
+            if (news == null) {
+                response.sendRedirect(JspPageName.ERROR_PAGE);
+            } else {
+                request.setAttribute(AttributesKeys.NEWS, news);
+                request.setAttribute(AttributesKeys.PRESENTATION, VIEW_LIST);
+                request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
+            }
+        } catch (ServiceNewsException e) {
+            response.sendRedirect(JspPageName.ERROR_PAGE);
         }
     }
 }

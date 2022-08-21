@@ -20,6 +20,8 @@ import jakarta.servlet.http.HttpSession;
 public class DoRegistration implements Command {
     private final IUserService service = ServiceProvider.getInstance().getUserService();
     private static final String ERROR_REGISTRATION_MESSAGE = "Invalid data entered";
+    private static final String DO_NOT_SHOW_NEWS = "noShow";
+    private static final String GO_TO_NEWS_LIST = "controller?command=go_to_news_list";
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,24 +30,26 @@ public class DoRegistration implements Command {
         String login = request.getParameter(UserParameter.JSP_LOGIN_PARAM);
         String password = request.getParameter(UserParameter.JSP_PASSWORD_PARAM);
         String email = request.getParameter(UserParameter.JSP_EMAIL_PARAM);
-        String role = UsersRole.USER;
+        String role = UsersRole.USER.getTitle();
         HttpSession getSession = request.getSession(true);
 
         NewUserInfo userData = new NewUserInfo(username, usersurname, login, password, email, role);
+
         try {
             if (service.registration(userData)) {
                 getSession.setAttribute(AttributesKeys.USER, ConnectionStatus.ACTIVE);
                 getSession.setAttribute(AttributesKeys.REG_USER, ConnectionStatus.REGISTERED);
                 getSession.setAttribute(AttributesKeys.ROLE, role);
-                response.sendRedirect("controller?command=go_to_news_list");
+                response.sendRedirect(GO_TO_NEWS_LIST);
+                request.removeAttribute(AttributesKeys.REG_USER);
             } else {
                 getSession.setAttribute(AttributesKeys.REG_USER, ConnectionStatus.UNREGISTERED);
                 request.setAttribute(AttributesKeys.ERRORS_REGISTRATION_NAME, ERROR_REGISTRATION_MESSAGE);
+                request.setAttribute(AttributesKeys.SHOW_NEWS, DO_NOT_SHOW_NEWS);
                 request.getRequestDispatcher(JspPageName.BASE_PAGE_LAYOUT).forward(request, response);
             }
-
         } catch (ServiceException e) {
-            e.printStackTrace();
+            response.sendRedirect(JspPageName.ERROR_PAGE);
         }
     }
 }
