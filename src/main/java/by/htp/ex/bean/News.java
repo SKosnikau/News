@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class News implements Serializable {
 
+
     private static final long serialVersionUID = 1L;
     private int idNews = 0;
     private String title = "";

@@ -4,7 +4,7 @@ public enum UsersRole {
     USER("user"),
     ADMIN("admin"),
     GUEST("guest"),
-    UNKNOWN("unkown");
+    UNKNOWN("unknown");
 
     private String title;
 

@@ -1,9 +1,9 @@
 package by.htp.ex.bean;
 
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 public class NewUserInfo {
-    private String userName;
+    private String username;
     private String userSurname;
     private String login;
     private String password;
@@ -15,16 +15,18 @@ public class NewUserInfo {
 
     }
 
-    public NewUserInfo(String userName, String userSurname, String login, String email, String role) {
-        this.userName = userName;
+    public NewUserInfo(String username, String userSurname, String login, String email, String role) {
+
+        this.username = username;
         this.userSurname = userSurname;
         this.login = login;
         this.email = email;
         this.role = role;
     }
 
-    public NewUserInfo(String userName, String userSurname, String login, String password, String email, String role) {
-        this.userName = userName;
+    public NewUserInfo(String username, String userSurname, String login, String password, String email, String role) {
+
+        this.username = username;
         this.userSurname = userSurname;
         this.login = login;
         this.password = password;
@@ -32,14 +34,13 @@ public class NewUserInfo {
         this.role = role;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
-
 
     public String getUserSurname() {
         return userSurname;
@@ -49,14 +50,12 @@ public class NewUserInfo {
         this.userSurname = userSurname;
     }
 
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void getPassword(String password) {
         this.password = password;
-        //TODO: Ask if that's a good idea to have "setPassword" in Bean?
     }
 
     public String getLogin() {
@@ -91,30 +90,21 @@ public class NewUserInfo {
         this.id = id;
     }
 
-
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        NewUserInfo that = (NewUserInfo) obj;
-        return Objects.equal(userName, that.userName) && Objects.equal(userSurname, that.userSurname) && Objects.equal(login, that.login)
-                && Objects.equal(email, that.email) && Objects.equal(role, that.role);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NewUserInfo that = (NewUserInfo) o;
+        return Objects.equals(username, that.username) && Objects.equals(userSurname, that.userSurname) && Objects.equals(login, that.login) && Objects.equals(email, that.email) && Objects.equals(role, that.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(userName, userSurname, login, password, email, role);
+        return Objects.hash(username, userSurname, login, password, email, role);
     }
 
     @Override
     public String toString() {
-        return "NewUserInfo{" +
-                "username='" + userName + '\'' +
-                ", userSurname='" + userSurname + '\'' +
-                ", login='" + login + '\'' +
-                ", password=" + password +
-                ", email='" + email + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+        return "NewUserInfo{" + "username='" + username + '\'' + ", userSurname='" + userSurname + '\'' + ", login='" + login + '\'' + ", password=" + password + ", email='" + email + '\'' + ", role='" + role + '\'' + '}';
     }
 }

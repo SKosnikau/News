@@ -4,7 +4,6 @@ public class ConnectionStatus {
 
     public static final String ACTIVE = "active";
     public static final String NOT_ACTIVE = "unactive";
-    //TODO: fix spelling
     public static final String UNREGISTERED = "unregistered";
     public static final String REGISTERED = "registered";
 }
