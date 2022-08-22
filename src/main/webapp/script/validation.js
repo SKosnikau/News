@@ -11,8 +11,8 @@ function checkValid() {
 }
 
 function validateNewsForm() {
-
 	var message = "";
+
 	var title = trim(document.forms[0].elements[2].value);
 	var date = trim(document.forms[0].elements[3].value);
 	var brief = trim(document.forms[0].elements[4].value);
@@ -73,16 +73,13 @@ function isValidDate(value, userFormat) {
 				y = date[i];
 			}
 		}
-
 		return (m > 0 && m < 13 && y && y.length === 4 && d > 0 && d <= (new Date(
 				y, m, 0)).getDate());
 	}
 
 	return isDate(theDate, theFormat);
 }
-
 var bCancel = false;
-
 function trim(s) {
 	return s.replace(/^\s*/, "").replace(/\s*$/, "");
 }
